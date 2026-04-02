@@ -101,7 +101,7 @@ exports.getMyRequests = async (req, res) => {
     const requests = await BloodRequest.find(filter)
       .sort({ createdAt: -1 });
 
-    // ✅ Manually fetch responder details
+    // ✅ Manually fetch responder details becaause it helps in search bar opton 
     const formattedRequests = await Promise.all(
       requests.map(async (request) => {
         const obj = request.toObject();

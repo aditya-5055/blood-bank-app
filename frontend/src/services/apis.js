@@ -1,3 +1,4 @@
+ 
 const BASE = "";
 
 // ─────────────────────────────────
@@ -11,6 +12,16 @@ export const AUTH_APIS = {
   FACILITY_REGISTER: "/api/auth/facility/register",
   FACILITY_LOGIN: "/api/auth/facility/login",
   ADMIN_LOGIN: "/api/auth/admin/login",
+};
+
+// ─────────────────────────────────
+// PUBLIC APIs — No token required
+// ─────────────────────────────────
+export const PUBLIC_APIS = {
+  FIND_BLOOD: "/api/public/find-blood",         // ?city=pune&bloodGroup=B+
+  GET_BLOOD_BANKS: "/api/public/blood-banks",   // ?city=pune
+  GET_HOSPITALS: "/api/public/hospitals",       // ?city=pune
+  GET_CAMPS: "/api/public/camps",               // ?city=pune
 };
 
 // ─────────────────────────────────
@@ -79,5 +90,4 @@ export const ADMIN_APIS = {
   GET_ALL_DONORS: "/api/admin/donors",
   GET_ALL_FACILITIES: "/api/admin/facilities",
   GET_ALL_REQUESTS: "/api/admin/requests",
-  
 };

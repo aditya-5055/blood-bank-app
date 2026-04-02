@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { FaTint, FaPhone } from "react-icons/fa";
 import { MdLocationOn, MdAccessTime, MdMyLocation } from "react-icons/md";
-import { getNearbyBloodBanks, proactiveDonate } from "../../services/donorService";
+import {
+  getNearbyBloodBanks,
+  proactiveDonate,
+} from "../../services/donorService";
 
 const NearbyBanks = () => {
   const [banks, setBanks] = useState([]);
@@ -19,7 +22,9 @@ const NearbyBanks = () => {
       const response = await getNearbyBloodBanks();
       setBanks(response.bloodBanks || []);
     } catch (error) {
-      toast.error(error?.response?.data?.message || "Failed to fetch nearby blood banks");
+      toast.error(
+        error?.response?.data?.message || "Failed to fetch nearby blood banks",
+      );
     } finally {
       setLoading(false);
     }
@@ -36,7 +41,7 @@ const NearbyBanks = () => {
         try {
           const response = await getNearbyBloodBanks(
             position.coords.longitude,
-            position.coords.latitude
+            position.coords.latitude,
           );
           setBanks(response.bloodBanks || []);
           toast.success("Location refreshed!");
@@ -46,7 +51,7 @@ const NearbyBanks = () => {
           setLoading(false);
         }
       },
-      () => toast.error("Location access denied")
+      () => toast.error("Location access denied"),
     );
   };
 
@@ -55,7 +60,9 @@ const NearbyBanks = () => {
     try {
       const response = await proactiveDonate({ bloodBankId: bankId });
       if (response.success) {
-        toast.success("Donation request sent! Wait for blood bank confirmation.");
+        toast.success(
+          "Donation request sent! Wait for blood bank confirmation.",
+        );
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || "Failed to send request");
@@ -74,12 +81,15 @@ const NearbyBanks = () => {
 
   return (
     <div className="space-y-6">
-
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-800">Nearby Blood Banks</h1>
-          <p className="text-gray-500 mt-1">Blood banks within 10km of your location</p>
+          <h1 className="text-2xl font-bold text-gray-800">
+            Nearby Blood Banks
+          </h1>
+          <p className="text-gray-500 mt-1">
+            Blood banks within 10km of your location
+          </p>
         </div>
         <button
           onClick={handleRefreshLocation}
@@ -93,7 +103,9 @@ const NearbyBanks = () => {
       {/* Info Box */}
       <div className="bg-red-50 border border-red-200 rounded-xl p-4">
         <p className="text-sm text-red-700">
-          🩸 Click <span className="font-bold">Donate Here</span> to send a proactive donation request to a blood bank. They will confirm and you can visit them!
+          🩸 Click <span className="font-bold">Donate Here</span> to send a
+          proactive donation request to a blood bank. They will confirm and you
+          can visit them!
         </p>
       </div>
 
@@ -106,7 +118,9 @@ const NearbyBanks = () => {
       {banks.length === 0 ? (
         <div className="bg-white rounded-2xl shadow p-12 text-center">
           <FaTint className="text-gray-300 text-5xl mx-auto mb-4" />
-          <h3 className="text-lg font-semibold text-gray-700">No blood banks nearby</h3>
+          <h3 className="text-lg font-semibold text-gray-700">
+            No blood banks nearby
+          </h3>
           <p className="text-gray-400 text-sm mt-1">
             No blood banks found within 10km of your location
           </p>
@@ -150,7 +164,8 @@ const NearbyBanks = () => {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600">
                   <MdLocationOn className="text-gray-400 flex-shrink-0" />
-                  {bank.address?.city}, {bank.address?.state} - {bank.address?.pincode}
+                  {bank.address?.city}, {bank.address?.state} -{" "}
+                  {bank.address?.pincode}
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600">
                   <MdAccessTime className="text-gray-400 flex-shrink-0" />
@@ -162,8 +177,8 @@ const NearbyBanks = () => {
 
               {/* Footer */}
               <div className="mt-4 pt-3 border-t border-gray-100 flex items-center gap-2">
-                
-                 <a href={`tel:${bank.phone}`}
+                <a
+                  href={`tel:${bank.phone}`}
                   className="flex items-center gap-1 px-3 py-2 border border-gray-200 text-gray-600 hover:text-red-600 hover:border-red-300 text-xs font-semibold rounded-lg transition-all"
                 >
                   <FaPhone className="text-xs" />
@@ -177,7 +192,6 @@ const NearbyBanks = () => {
                   {donating === bank._id ? "Sending..." : "🩸 Donate Here"}
                 </button>
               </div>
-
             </div>
           ))}
         </div>

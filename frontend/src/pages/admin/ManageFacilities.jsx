@@ -72,6 +72,7 @@ const ManageFacilities = () => {
             className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
           />
         </div>
+        {/* set the filter type to  button active */}
         <div className="flex gap-2">
           {["all", "hospital", "blood-bank"].map((type) => (
             <button

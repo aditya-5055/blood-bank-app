@@ -20,7 +20,7 @@ const hospitalRoutes = require("./routes/hospitalRoutes");   // All hospital rel
 const authRoutes = require("./routes/authRoutes");           // All authentication routes (login, register)
 const adminRoutes = require("./routes/adminRoutes");         // All admin related routes
 const donorRoutes = require("./routes/donorRoutes");         // All donor related routes
-
+const publicRoutes = require("./routes/publicRoutes");  // ✅ add this
 // ─────────────────────────────────────────────────────────
 // LOAD ENVIRONMENT VARIABLES
 // Reads .env file and makes all variables available
@@ -83,7 +83,7 @@ app.use("/api/admin", adminRoutes);         // Handles: /api/admin/pending-facil
 app.use("/api/donor", donorRoutes);         // Handles: /api/donor/profile, /api/donor/nearby-camps etc.
 app.use("/api/bloodbank", bloodBankRoutes); // Handles: /api/bloodbank/inventory, /api/bloodbank/camps etc.
 app.use("/api/hospital", hospitalRoutes);   // Handles: /api/hospital/blood-request, /api/hospital/profile etc.
-
+app.use("/api/public", publicRoutes);  
 // ─────────────────────────────────────────────────────────
 // TEST ROUTE
 // Simple health check to confirm server is running

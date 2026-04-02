@@ -13,7 +13,10 @@ import { ROLES } from "./constants/roles";
 
 // Public Pages
 import Home from "./pages/Home";
-
+import Findblood from "./pages/Findblood ";
+import Camps from "./pages/Camps";
+import Learn from "./pages/Learn";
+import About from "./pages/About";
 // Auth Pages
 import DonorLogin from "./pages/auth/DonorLogin";
 import DonorRegister from "./pages/auth/DonorRegister";
@@ -36,7 +39,7 @@ import BloodBankProfile from "./pages/bloodbank/Profile";
 import Inventory from "./pages/bloodbank/Inventory";
 import DonationRequests from "./pages/bloodbank/DonationRequests";
 import BloodRequests from "./pages/bloodbank/BloodRequests";
-import Camps from "./pages/bloodbank/Camps";
+// import Camps from "./pages/bloodbank/Camps";
 import Transactions from "./pages/bloodbank/Transactions";
 
 // Hospital Pages
@@ -64,9 +67,10 @@ function App() {
       {/* ─────────────────────────────────── */}
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/camps" element={<div className="p-6"><h1 className="text-2xl font-bold">Public Camps Page</h1></div>} />
-        <Route path="/learn" element={<div className="p-6"><h1 className="text-2xl font-bold">Learn Page</h1></div>} />
-        <Route path="/about" element={<div className="p-6"><h1 className="text-2xl font-bold">About Us Page</h1></div>} />
+        <Route path="/camps" element={<Camps />} />
+        <Route path="/learn" element={<Learn />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/find-blood" element={<Findblood />} />
       </Route>
 
       {/* ─────────────────────────────────── */}

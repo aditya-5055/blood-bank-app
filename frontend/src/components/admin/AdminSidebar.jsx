@@ -19,7 +19,7 @@ const AdminSidebar = () => {
 
   return (
     <>
-      <aside className="hidden md:flex fixed top-14 left-0 h-[calc(100vh-3.5rem)] w-64 bg-white border-r border-gray-100 flex-col z-40">
+      <aside className="hidden md:flex fixed top-16 left-0 h-[calc(100vh-4rem)] w-64 bg-white border-r border-gray-100 flex-col z-40">
 
         {/* User Info */}
         <div className="px-4 py-4 border-b border-gray-100">
