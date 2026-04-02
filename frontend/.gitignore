@@ -18,7 +18,8 @@ dist-ssr
 .env
 .env.local
 .env.*.local
-
+.env
+backend/.env
 # OS files
 .DS_Store
 
