@@ -14,12 +14,11 @@ node_modules
 dist
 dist-ssr
 
-# Local env files
+# Environment files (IMPORTANT 🔥)
 .env
-.env.local
-.env.*.local
-.env
+.env.*
 backend/.env
+
 # OS files
 .DS_Store
 
